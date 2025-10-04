@@ -11,10 +11,41 @@ env:
   KERNELSU_BRANCH: 'susfs-main'
 
 on:
-  workflow_dispatch:
   # 取消此处注释代码可开启每日定时编译
 #  schedule:
 #    - cron: '0 23 * * *'  # UTC时间23点（北京时间次日7点）
+
+  workflow_call:
+    inputs:
+      ksu_type:
+        required: true
+        type: string
+      hook_method:
+        required: true
+        type: string
+      kpm_enable:
+        required: true
+        type: string
+      lz4_enable:
+        required: true
+        type: string
+      bbr_enable:
+        required: true
+        type: string
+      better_net:
+        required: true
+        type: string
+      ssg_rekernel_enable:
+        required: true
+        type: string
+      baseband_guard:
+        required: true
+        type: boolean
+      kernel_suffix:
+        required: false
+        type: string
+
+  workflow_dispatch:
     inputs:
       ksu_type:
         description: 'KernelSU分支(SukiSU Ultra/KernelSU Next,默认SukiSU Ultra)'
