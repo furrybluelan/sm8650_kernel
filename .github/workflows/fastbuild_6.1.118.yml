@@ -36,7 +36,7 @@ on:
         type: string
       baseband_guard:
         required: true
-        type: boolean
+        type: string
       kernel_suffix:
         required: false
         type: string
