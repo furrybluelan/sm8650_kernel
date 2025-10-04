@@ -1,4 +1,4 @@
-name: 构建内核
+name: *构建内核
 
 on:
   workflow_dispatch:
