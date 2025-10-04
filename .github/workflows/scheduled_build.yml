@@ -1,9 +1,9 @@
-name: 定时构建示例
+name: 定时构建 KernelSU Next
 
 # 取消注释此处代码以开启定时构建
 on:
-#  schedule:
-#    - cron: '0 16 * * *' #这里代表每 UTC 16点准时构建
+  schedule:
+    - cron: '0 16 * * *' #这里代表每 UTC 16点准时构建
 
 jobs:
   call-build:
@@ -11,12 +11,12 @@ jobs:
     # 这里代表构建 6.1.118 版本，如要修改，替换为对应的文件路径即可
     with:
       # 就是你选的
-      ksu_type: 'sukisu' # KernelSU 分支 (sukisu/ksunext)
+      ksu_type: 'ksunext' # KernelSU 分支 (sukisu/ksunext)
       hook_method: 'manual' # Hook模式(manual/syscall/kprobes)
       kpm_enable: 'false' # 是否开启KPM？ (true/false)
-      lz4_enable: '1' # 是否开启zram？(1.LZ4 2.LZMA 3.都开)
-      bbr_enable: 'false' # 是否开启BBR算法？(true/false)
+      lz4_enable: '3' # 是否开启zram？(1.LZ4 2.LZMA 3.都开)
+      bbr_enable: 'true' # 是否开启BBR算法？(true/false)
       better_net: 'true' # 是否开启网络配置优化？(true/false)
-      ssg_rekernel_enable: '1' # 是否开启三星 SSG 调度和 Re-kernel 墓碑？(1.开启 SSG 2.开启Re-kernel 3.都开)
+      ssg_rekernel_enable: '3' # 是否开启三星 SSG 调度和 Re-kernel 墓碑？(1.开启 SSG 2.开启Re-kernel 3.都开)
       baseband_guard: 'true' # 是否开启内核级基带保护？(true/false)
-      kernel_suffix: '' # 内核后缀
+      kernel_suffix: 'android14-11-0-gca13bffobf09' # 内核后缀
